@@ -28,6 +28,8 @@ class ClassComp extends Component {
       <div>
         <button onClick={() => this.wrongChangeState()}> Change State </button>
         <button onClick={() => this.correctChangeState()}> Change State </button>
+        {/*OR can also:*/}
+        <button onClick={() => this.setState({ statevalue1: "New State" })}> Change State </button>
         {this.state.statevalue1}
       </div>
      );
