@@ -39,6 +39,15 @@ class ClassComp extends Component {
     this.setState({ statevalue2: this.state.statevalue2 + 1 })
   )
 
+  // alternative conditional if/else usage:
+  conditionalFunction = () => {
+    if (true) {
+      return (<div>alterternate conditiona use 1</div>)
+    } else {
+      return (<div>alterternate conditiona use 2</div>)
+    }
+  }
+
   state = {  }
   render() { 
     return ( 
@@ -52,9 +61,31 @@ class ClassComp extends Component {
         <button onClick={() => this.otherChangeState()}> Other Change Number State </button>
         <br/>
 
-        {/*passing state as props:*/}
+        {/*passing state as props (not a recommended patter!):*/}
         <FunctComp1 passedprop1={this.state.statevalue2}/>
+        <br/>
+        <br/>
+        <br/>
+        {/*if/else is done usually through ternary expressions:*/}
+        {true ? <div>Condition 1</div> : <div>Condition 2</div>}
+        <br/>
+        {true 
+          ? <div>Condition 1</div> 
+          : <div>Condition 2</div>
+        }
+        <br/>
+
+        {/* nested ternery example: */}
+        {false 
+          ? true ? <div>Nested Condition 1</div> : <div>Nested Condition 2</div>
+          : false ? <div>Nested Condition 3</div> : <div>Nested Condition 4</div>
+        }
+
+        <br/>
+        {/* alternate conditional use: */}
+        {this.conditionalFunction()}
       </div>
+
     );
   }
 }
