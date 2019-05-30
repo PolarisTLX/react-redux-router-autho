@@ -21,6 +21,14 @@ import * as styles from "./styles"
 class App extends Component {
   // name = "Paul"
 
+  state = {
+    counter: 0
+  }
+
+  increment = () => {
+    this.setState({counter: 5})
+  }
+
   render() { 
 
     const name = "Paul"
@@ -45,6 +53,18 @@ class App extends Component {
         {/*<div style={styles}>*/} 
         <div style={styles.styles}> 
           Style
+        </div>
+
+        <button onClick={() => this.increment()}> Button </button>
+
+        <div>
+          Div 1 {this.state.counter}
+        </div>
+        <div>
+          Div 2
+        </div>
+        <div>
+          Div 3
         </div>
 
       </div>
