@@ -39,6 +39,10 @@ class App extends Component {
     //   boxShadow: '2px 2px'
     // }
 
+    const object1 = {
+      key1: "some data"
+    }
+
     return ( 
 
       <div className="App">
@@ -65,6 +69,13 @@ class App extends Component {
         </div>
         <div>
           Div 3
+        </div>
+
+        <div>
+          {/*can't display an entire object in JSX*/}
+          {/*object1*/}
+          {/*can only do one key:*/}
+          {object1.key1}
         </div>
 
       </div>
