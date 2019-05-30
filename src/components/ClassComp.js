@@ -5,7 +5,8 @@ class ClassComp extends Component {
     super(props)
 
     this.state = {
-      statevalue1: "Our Initial State"
+      statevalue1: "Our Initial State",
+      statevalue2: 5
     }
   }
 
@@ -20,19 +21,29 @@ class ClassComp extends Component {
     this.setState({
       statevalue1: "New State"
     })
+
+    this.setState((prevState, props) => ({
+      statevalue2: prevState.statevalue2 + 1
+    }))    
   }
+
+  otherChangeState = () => (
+    this.setState({ statevalue2: this.state.statevalue2 + 1 })
+  )
 
   state = {  }
   render() { 
     return ( 
       <div>
-        <button onClick={() => this.wrongChangeState()}> Change State </button>
-        <button onClick={() => this.correctChangeState()}> Change State </button>
-        {/*OR can also:*/}
-        <button onClick={() => this.setState({ statevalue1: "New State" })}> Change State </button>
+        <button onClick={() => this.wrongChangeState()}> Wrong Change Text State </button>
+        <button onClick={() => this.correctChangeState()}> Change Text and Number State </button>
+        {/*OR can also, (but not recommended for readibility):*/}
+        <button onClick={() => this.setState({ statevalue1: "New State" })}> Change Text State </button>
         {this.state.statevalue1}
+        {this.state.statevalue2}
+        <button onClick={() => this.otherChangeState()}> Other Change Number State </button>
       </div>
-     );
+    );
   }
 }
  
