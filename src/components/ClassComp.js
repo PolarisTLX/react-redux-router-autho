@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FunctComp1 from "./FunctComp1";
 
 class ClassComp extends Component {
   constructor(props) {
@@ -49,6 +50,10 @@ class ClassComp extends Component {
         {this.state.statevalue1}
         {this.state.statevalue2}
         <button onClick={() => this.otherChangeState()}> Other Change Number State </button>
+        <br/>
+
+        {/*passing state as props:*/}
+        <FunctComp1 passedprop1={this.state.statevalue2}/>
       </div>
     );
   }
