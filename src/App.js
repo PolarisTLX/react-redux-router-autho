@@ -19,6 +19,7 @@ import './App.css';
 import * as styles from "./styles"
 import ClassComp from "./components/ClassComp"
 import ListComp1 from "./components/ListComp1"
+import FormsComp from "./components/FormsComp"
 
 class App extends Component {
   // name = "Paul"
@@ -85,6 +86,10 @@ class App extends Component {
         <br/>
         <br/>
         <ListComp1/>
+
+        <br/>
+        <br/>
+        <FormsComp/>
 
       </div>
 
