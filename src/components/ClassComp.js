@@ -18,13 +18,20 @@ class ClassComp extends Component {
   }
 
   correctChangeState = () => {
-    this.setState({
-      statevalue1: "New State"
-    })
+    // this.setState({
+    //   statevalue1: "New State"
+    // })
+
+    // this.setState((prevState, props) => ({
+    //   statevalue2: prevState.statevalue2 + 1
+    // }))  
+    
+    // OR Both at the same time:
 
     this.setState((prevState, props) => ({
+      statevalue1: "New State",
       statevalue2: prevState.statevalue2 + 1
-    }))    
+    }))
   }
 
   otherChangeState = () => (
