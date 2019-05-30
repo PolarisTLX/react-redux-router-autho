@@ -16,18 +16,21 @@
 
 import React, { Component } from 'react';
 import './App.css';
+import * as styles from "./styles"
 
 class App extends Component {
   // name = "Paul"
 
   render() { 
+
     const name = "Paul"
 
-    const styles = {
-      border: 'solid',
-      textAlign: 'center',
-      boxShadow: '2px 2px'
-    }
+    // const styles = {
+    //   border: 'solid',
+    //   textAlign: 'center',
+    //   boxShadow: '2px 2px'
+    // }
+
     return ( 
 
       <div className="App">
@@ -39,7 +42,8 @@ class App extends Component {
           Button 1
         </button>
 
-        <div style={styles}> 
+        {/*<div style={styles}>*/} 
+        <div style={styles.styles}> 
           Style
         </div>
 
