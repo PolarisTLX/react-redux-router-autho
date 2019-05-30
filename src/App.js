@@ -18,6 +18,7 @@ import React, { Component } from 'react';
 import './App.css';
 import * as styles from "./styles"
 import ClassComp from "./components/ClassComp"
+import ListComp1 from "./components/ListComp1"
 
 class App extends Component {
   // name = "Paul"
@@ -80,6 +81,10 @@ class App extends Component {
         </div>
 
         <ClassComp/>
+
+        <br/>
+        <br/>
+        <ListComp1/>
 
       </div>
 
