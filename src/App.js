@@ -17,6 +17,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import * as styles from "./styles"
+import ClassComp from "./components/ClassComp"
 
 class App extends Component {
   // name = "Paul"
@@ -77,6 +78,8 @@ class App extends Component {
           {/*can only do one key:*/}
           {object1.key1}
         </div>
+
+        <ClassComp/>
 
       </div>
 
