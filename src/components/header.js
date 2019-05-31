@@ -5,10 +5,10 @@ class Header extends Component {
   render() { 
     return ( 
       <div>
-        <Link to='/routercomponent1'>
+        <Link to='/routercomponent1' style={{padding: '5px'}}>
           RouterComponent1
         </Link>
-        <Link to='/routercomponent2'>
+        <Link to='/routercomponent2' style={{padding: '5px'}}>
           RouterComponent2
         </Link>
       </div>
