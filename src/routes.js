@@ -22,7 +22,7 @@ class Routes extends Component {
             <Switch>
               {/* <Route path="/routercomponent1" component={RouterComponent1} /> */}
               {/* <Route path="/routercomponent2" component={RouterComponent2} /> */}
-              <Route path="/routercomponent/:id" render={(props) => <div><RouterComponent2 {...props}/> </div> } />
+              <Route path="/routercomponent/:id" render={(props) => <div><RouterComponent2 {...props}/> check this line in the code - this isn't right </div> } />
             </Switch>
           </div>
         </Router>

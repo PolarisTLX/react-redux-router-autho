@@ -6,6 +6,9 @@ import * as ACTIONS from "../store/actions/actions";
 
 import { connect } from "react-redux";
 
+import Auth from '../utils/auth';
+const auth = new Auth()
+
 // a simple container to test out Redux State
 class Container1 extends Component {
 
@@ -32,6 +35,17 @@ class Container1 extends Component {
           ? <h1>{this.props.user_input}</h1>
           : null
         }
+
+        <br />
+        <br />
+        <br />
+        <p>BEGINING OF AUTH0 SECTION</p>
+        <br />
+        <br />
+        <button onClick={() => auth.login()}> Login </button>
+        <br />
+        <br />
+        <p>END OF AUTH0 SECTION</p>
       </div>
     );
   }
