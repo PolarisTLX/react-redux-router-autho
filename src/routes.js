@@ -8,7 +8,7 @@ import Header from './components/header'
 import createBrowserHistory from './utils/history'
 
 
-import { Router, Route } from 'react-router'
+import { Router, Route, Switch } from 'react-router'
 
 
 class Routes extends Component {
@@ -19,8 +19,10 @@ class Routes extends Component {
         <Router history={createBrowserHistory}>
           <div>
             <Header/>
-            <Route path="/routercomponent1" component={RouterComponent1} />
-            <Route path="/routercomponent2" component={RouterComponent2} />
+            <Switch>
+              <Route path="/routercomponent1" component={RouterComponent1} />
+              <Route path="/routercomponent2" component={RouterComponent2} />
+            </Switch>
           </div>
         </Router>
       </div>
