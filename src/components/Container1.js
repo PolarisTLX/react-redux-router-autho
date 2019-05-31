@@ -24,7 +24,14 @@ class Container1 extends Component {
           console.log(this.props.stateprop2);
           } }
         > 
-        Dispatch Action Creator 3 </button>
+          Dispatch Action Creator 3 
+        </button>
+        {/* Render data to screen from clicking on Dispatch Action Creator 3 */}
+        {/* if the date exists, show it: */}
+        {this.props.user_input
+          ? <h1>{this.props.user_input}</h1>
+          : null
+        }
       </div>
     );
   }
@@ -32,8 +39,14 @@ class Container1 extends Component {
 
 function mapStateToProps(state) {
   return {
-    stateprop1: state.stateprop1,
-    stateprop2: state.user_text
+    // stateprop1: state.stateprop1,
+    // stateprop2: state.user_text    
+    // changed now that reducers have been joined:
+    
+    // and need to indicate which reducer each comes from:
+    stateprop1: state.reducer1.stateprop1,
+    user_input: state.user_reducer.user_text
+
   }
 }
 
