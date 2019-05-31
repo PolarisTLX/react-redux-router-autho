@@ -92,6 +92,10 @@ class App extends Component {
         <br/>
         <FormsComp/>
 
+        <br />
+        <br />
+        <p>Redux stuff below:</p>
+
         <br/>
         <br/>
         <Container1/>
