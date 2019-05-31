@@ -20,9 +20,9 @@ class Routes extends Component {
           <div>
             <Header/>
             <Switch>
-              <Route path="/routercomponent1" component={RouterComponent1} />
+              {/* <Route path="/routercomponent1" component={RouterComponent1} /> */}
               {/* <Route path="/routercomponent2" component={RouterComponent2} /> */}
-              <Route path="/routercomponent2" render={(props) => <div><RouterComponent2 {...props}/> </div> } />
+              <Route path="/routercomponent/:id" render={(props) => <div><RouterComponent2 {...props}/> </div> } />
             </Switch>
           </div>
         </Router>
