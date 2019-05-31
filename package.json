@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "react": "^16.8.6",
+    "react-dev-utils-for-webpack4": "^5.0.0-webpack4",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.3",
     "react-scripts": "3.0.1",

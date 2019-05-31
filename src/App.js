@@ -20,6 +20,7 @@ import * as styles from "./styles"
 import ClassComp from "./components/ClassComp"
 import ListComp1 from "./components/ListComp1"
 import FormsComp from "./components/FormsComp"
+import Container1 from "./components/Container1"
 
 class App extends Component {
   // name = "Paul"
@@ -90,6 +91,10 @@ class App extends Component {
         <br/>
         <br/>
         <FormsComp/>
+
+        <br/>
+        <br/>
+        <Container1/>
 
       </div>
 
