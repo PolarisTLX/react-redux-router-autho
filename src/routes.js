@@ -8,11 +8,17 @@ import AuthContainer from './components/AuthContainer';
 import Header from './components/header';
 // to make the "back button" on browser work with this kind of SPA
 import createBrowserHistory from './utils/history';
-import { Router, Route, Switch } from 'react-router';
+import AuthCheck from './utils/authcheck';
+import { Router, Route, Switch, Redirect } from 'react-router';
 
 import Callback from './functional/callback';
+// import ProtectedRoute from './functional/protectedroute';
+// import UnauthRedirect from './functional/unauthredirect';
 
 import Auth from './utils/auth';
+import ProtectedRoute from './functional/protectedroute';
+import UnauthRedirect from './functional/unauthredirect';
+
 
 const auth = new Auth();
 
@@ -21,6 +27,13 @@ const handleAuthentication = (props) => {
     auth.handleAuth();
   }
 }
+
+const PrivateRoute = ({component: Component, auth }) => (
+  <Route render={props => auth.isAuthenticated() === true
+    ? <Component auth={auth} {...props} />
+    : <Redirect to={{pathname:'/redirect'}} /> 
+  }/>
+)
 
 
 class Routes extends Component {
@@ -38,7 +51,11 @@ class Routes extends Component {
 
               {/* Note that the Auth stuff below disappears once logged in: */}
               <Route exact path='/' render={ () => <AuthContainer auth={auth} /> } />
+              <Route path='/redirect' component={UnauthRedirect} />
               <Route path='/callback' render={ (props) => { handleAuthentication(props); return <Callback/> } } />
+              <Route path='/authcheck' render={() => <AuthCheck auth={auth} /> } />
+
+              <PrivateRoute path="/privateroute" auth={auth} component={ProtectedRoute} />
             </Switch>
             <p>0Auth route above? (only appears if not logged in) </p>
             <br/>

@@ -30,6 +30,15 @@ class Header extends Component {
             RouterComponent{number.id}
           </Link>
         )}
+
+        <br />
+        <br />
+
+        <p>Auth0 and Redux stuff:</p>
+        <Link to='/privateroute' style={{padding: '5px'}}>
+          Private Route
+        </Link>
+
       </div>
      );
   }
