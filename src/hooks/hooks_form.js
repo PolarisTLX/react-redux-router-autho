@@ -59,6 +59,7 @@ const HooksForm = () => {
       </form>
       <div>
         <h2>React useContext (not fully working...): </h2>
+        <p>here is the final code:  https://github.com/iqbal125/react-hooks/tree/master/src</p>
         <p>Change: {context.useContextChange}</p>
         <p>Submit: {context.useContextSubmit}</p>
       </div>
