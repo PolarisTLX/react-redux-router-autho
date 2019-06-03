@@ -69,6 +69,14 @@ const HooksContainer1 = () => {
       <button onClick={() => context.addGlobalValue()}>context.addGlobalValue</button>
       <button onClick={() => context.decreGlobalValue()}>context.decreGlobalValue</button>
       <p>Hooks Global State (Won't Change even when leave this component): {context.valueGlobalState}</p>
+
+      <br/>
+      <button onClick={() => context.dispatchContextTrue()}>context.dispatchContextTrue</button>
+      <button onClick={() => context.dispatchContextFalse()}>context.dispatchContextFalse</button>
+      {context.reducerGlobalState
+        ? <p>Hooks Global Context stateprop2 is true (won't change even when leaving this component</p>
+        : <p>Hooks Global Context stateprop2 is false (won't change even when leaving this component</p>
+      }
     </div>
    );
 }

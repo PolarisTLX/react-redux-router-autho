@@ -15,7 +15,7 @@
 
 
 // import React, { Component } from 'react';
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import './App.css';
 import * as styles from "./styles"
 import ClassComp from "./components/ClassComp"
@@ -25,6 +25,9 @@ import Container1 from "./components/Container1"
 import Routes from './routes'
 
 import Context from './utils/context'
+import * as Reducer from './store/hooks_state/hooksreducer';
+import * as UserInputHooksReducer from './store/hooks_state/user_input_hooks_reducer';
+import * as ACTIONS from './store/actions/actions';
 
 // class App extends Component {
 const App = () => {
@@ -56,11 +59,37 @@ const App = () => {
 
     const [stateGlobalHook, setStateGlobalHook] = useState(0);
 
+    const [hooksContextState, dispatchContextGlobal] = useReducer(Reducer.HooksReducer, Reducer.initialState)
+    const [formContextState, dispatchFormContextGlobal] = useReducer(UserInputHooksReducer.UserInputHooksReducer, UserInputHooksReducer.initialState)
+
     const incrementGlobalStateHook = () => {
       setStateGlobalHook(stateGlobalHook + 1)
     }
     const decrementGlobalStateHook = () => {
       setStateGlobalHook(stateGlobalHook - 1)
+    }
+
+    const handleContextHooksDispatchTrue = () => {
+      // dispatch(ACTIONS.SUCCESS)
+      // OR:
+      // dispatch(type: "SUCCESS")
+      // OR:
+      dispatchContextGlobal(ACTIONS.success())
+    }
+
+    const handleContextHooksDispatchFalse = () => {
+      dispatchContextGlobal(ACTIONS.failure())
+    }
+
+
+    const handleuseContextChange = (event) => {
+      dispatchFormContextGlobal(ACTIONS.user_input_change(event.target.value))
+    }
+    const handleuseContextSubmit = (event) => {
+      event.preventDefault();
+      // THIS IS SPECIAL FOR CONTEXT AND FORMS!!!:
+      event.persist()
+      dispatchFormContextGlobal(ACTIONS.user_input_submit(event.target.useContext.value))
     }
 
     return ( 
@@ -127,7 +156,16 @@ const App = () => {
           value={{
             valueGlobalState: stateGlobalHook,
             addGlobalValue: () => incrementGlobalStateHook(),
-            decreGlobalValue: () => decrementGlobalStateHook()
+            decreGlobalValue: () => decrementGlobalStateHook(),
+
+            reducerGlobalState: hooksContextState.stateprop2,
+            dispatchContextTrue: () => handleContextHooksDispatchTrue(),
+            dispatchContextFalse: () => handleContextHooksDispatchFalse(),
+
+            useContextChange: formContextState.user_text_change,
+            useContextSubmit: formContextState.user_text_submit,
+            useContextHandleChange: (event) => handleuseContextChange(event),
+            useContextHandleSubmit: (event) => handleuseContextSubmit(event),
           }}
         >
           <Routes/>

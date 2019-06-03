@@ -25,6 +25,7 @@ import ProtectedRoute from './functional/protectedroute';
 import UnauthRedirect from './functional/unauthredirect';
 
 import HooksContainer1 from './hooks/hookscontainer1';
+import HooksForm from './hooks/hooks_form'
 
 const auth = new Auth();
 
@@ -82,6 +83,7 @@ class Routes extends Component {
               <PrivateRoute path="/privateroute" auth={auth} component={ProtectedRoute} />
               <PrivateRoute path="/profile" auth={auth} component={Profile}  />
               <Route path="/hookscontainer" component={HooksContainer1} />
+              <Route path="/hooksform" component={HooksForm} />
             </Switch>
             <p>0Auth route above? (only appears if not logged in) </p>
             <br/>
