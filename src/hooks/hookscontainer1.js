@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
+import * as Reducer from '../store/hooks_state/hooksreducer';
+import * as ACTIONS from '../store/actions/actions';
 
 const HooksContainer1 = () => {
 
@@ -8,6 +10,8 @@ const HooksContainer1 = () => {
   const [stateValue, setValue] = useState(0)
 
   const [useEffectValue, setUseEffectValue] = useState(null)
+
+  const [hooksState, dispatch] = useReducer(Reducer.HooksReducer, Reducer.initialState)
 
   useEffect(() => {
     // simulate API request to get data from a server:
@@ -25,6 +29,18 @@ const HooksContainer1 = () => {
     setUseEffectValue('We changed the useEffectValue!')
   }
 
+  const handleHooksDispatchTrue = () => {
+    // dispatch(ACTIONS.SUCCESS)
+    // OR:
+    // dispatch(type: "SUCCESS")
+    // OR:
+    dispatch(ACTIONS.success())
+  }
+
+  const handleHooksDispatchFalse = () => {
+    dispatch(ACTIONS.failure())
+  }
+
   return ( 
     <div>
       React Hooks
@@ -37,6 +53,13 @@ const HooksContainer1 = () => {
       {useEffectValue
         ? <p>{useEffectValue}</p>
         : <p>No Value</p>
+      }
+      <br/>
+      <button onClick={() => handleHooksDispatchTrue()}>handleHooksDispatchTrue</button>
+      <button onClick={() => handleHooksDispatchFalse()}>handleHooksDispatchFalse</button>
+      {hooksState.stateprop1
+        ? <p>Stateprop1 is true</p>
+        : <p>Stateprop1 is false</p>
       }
     </div>
    );
