@@ -1,8 +1,12 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useState, useEffect, useReducer, useContext } from 'react';
 import * as Reducer from '../store/hooks_state/hooksreducer';
 import * as ACTIONS from '../store/actions/actions';
 
+import Context from '../utils/context';
+
 const HooksContainer1 = () => {
+
+  const context = useContext(Context);
 
   // const stateValue = useState(0)[0]
   // const setValue = useState(0)[1]
@@ -61,6 +65,10 @@ const HooksContainer1 = () => {
         ? <p>Stateprop1 is true</p>
         : <p>Stateprop1 is false</p>
       }
+      <br/>
+      <button onClick={() => context.addGlobalValue()}>context.addGlobalValue</button>
+      <button onClick={() => context.decreGlobalValue()}>context.decreGlobalValue</button>
+      <p>Hooks Global State (Won't Change even when leave this component): {context.valueGlobalState}</p>
     </div>
    );
 }

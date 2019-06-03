@@ -15,7 +15,7 @@
 
 
 // import React, { Component } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import * as styles from "./styles"
 import ClassComp from "./components/ClassComp"
@@ -23,6 +23,8 @@ import ListComp1 from "./components/ListComp1"
 import FormsComp from "./components/FormsComp"
 import Container1 from "./components/Container1"
 import Routes from './routes'
+
+import Context from './utils/context'
 
 // class App extends Component {
 const App = () => {
@@ -50,6 +52,15 @@ const App = () => {
 
     const object1 = {
       key1: "some data"
+    }
+
+    const [stateGlobalHook, setStateGlobalHook] = useState(0);
+
+    const incrementGlobalStateHook = () => {
+      setStateGlobalHook(stateGlobalHook + 1)
+    }
+    const decrementGlobalStateHook = () => {
+      setStateGlobalHook(stateGlobalHook - 1)
     }
 
     return ( 
@@ -111,7 +122,16 @@ const App = () => {
         <br/>
         <br/>
         <p>Router stuff below:</p>
-        <Routes/>
+        {/* Context.Provider is a new Hooks take on Redux: */}
+        <Context.Provider
+          value={{
+            valueGlobalState: stateGlobalHook,
+            addGlobalValue: () => incrementGlobalStateHook(),
+            decreGlobalValue: () => decrementGlobalStateHook()
+          }}
+        >
+          <Routes/>
+        </Context.Provider>
 
       </div>
 
