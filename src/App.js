@@ -14,7 +14,8 @@
 // export default App;
 
 
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import * as styles from "./styles"
 import ClassComp from "./components/ClassComp"
@@ -23,18 +24,21 @@ import FormsComp from "./components/FormsComp"
 import Container1 from "./components/Container1"
 import Routes from './routes'
 
-class App extends Component {
+// class App extends Component {
+const App = () => {
   // name = "Paul"
 
-  state = {
+  // state = {
+  let state = {
     counter: 0
   }
 
-  increment = () => {
+  // increment = () => {
+  let increment = () => {
     this.setState({counter: 5})
   }
 
-  render() { 
+  // render() { 
 
     const name = "Paul"
 
@@ -64,10 +68,12 @@ class App extends Component {
           Style
         </div>
 
-        <button onClick={() => this.increment()}> Button </button>
+        {/* <button onClick={() => this.increment()}> Button </button> */}
+        <button onClick={() => increment()}> Button </button>
 
         <div>
-          Div 1 {this.state.counter}
+          {/* Div 1 {this.state.counter} */}
+          Div 1 {state.counter}
         </div>
         <div>
           Div 2
@@ -110,13 +116,13 @@ class App extends Component {
       </div>
 
      );
-  }
+  // }
 }
 
-const Appinstance = new App()
+// const Appinstance = new App()
 
-// console.log(Appinstance.name);
-console.log(Appinstance);
+// // console.log(Appinstance.name);
+// console.log(Appinstance);
 
  
 export default App;

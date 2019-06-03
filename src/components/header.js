@@ -45,6 +45,12 @@ class Header extends Component {
           Profile
         </Link>
 
+        <br />
+        <br />
+        <Link to='/hookscontainer' style={{ padding: '5px' }}>
+          Hooks Container
+        </Link>
+
       </div>
      );
   }
