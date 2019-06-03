@@ -37,6 +37,7 @@ class Container1 extends Component {
         }
         <br/>
         <button onClick={() => console.log(this.props.user_profile)}> Read Profile State </button>
+        <button onClick={() => console.log(this.props.is_authenticated)}> Read Authenticated State </button>
       </div>
     );
   }
@@ -51,7 +52,8 @@ function mapStateToProps(state) {
     // and need to indicate which reducer each comes from:
     stateprop1: state.reducer1.stateprop1,
     user_input: state.user_reducer.user_text,
-    user_profile: state.auth_reducer.profile
+    user_profile: state.auth_reducer.profile,
+    is_authenticated: state.auth_reducer.is_authenticated
 
   }
 }

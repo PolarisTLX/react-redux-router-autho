@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
-import RouterComponent1 from './functional/routercomponent1';
+import { connect } from 'react-redux';
+import * as ACTIONS from './store/actions/actions';
+
+// import RouterComponent1 from './functional/routercomponent1';
 import RouterComponent2 from './functional/routercomponent2';
 // import Container1 from './components/Container1'
 import AuthContainer from './components/AuthContainer';
@@ -39,7 +42,25 @@ const PrivateRoute = ({component: Component, auth }) => (
 
 
 class Routes extends Component {
-  state = {  }
+
+
+  // This componentDidMount() is for a "silent authentication"
+  // it means a user remains logged in even when the page is refreshed
+  // thus fixing an awful flaw
+  // this needs to be a Redux Container for this to work?
+  // by importing { connect }  above
+  componentDidMount() {
+    if (auth.isAuthenticated()) {
+      this.props.login_success()
+      auth.getProfile()
+      // Redux needs time to update the state:
+      setTimeout(() => { this.props.add_profile(auth.userProfile) }, 2000)
+    } else {
+      this.props.login_failure()
+      this.props.remove_profile()
+    }
+  }
+  
   render() { 
     return ( 
       <div>
@@ -70,5 +91,14 @@ class Routes extends Component {
      );
   }
 }
+
+function mapDispatchToProps (dispatch) {
+  return {
+    login_success: () => dispatch(ACTIONS.login_success()),
+    login_failure: () => dispatch(ACTIONS.login_failure()),
+    add_profile: (profile) => dispatch(ACTIONS.add_profile(profile)),
+    remove_profile: () => dispatch(ACTIONS.remove_profile())
+  }
+}
  
-export default Routes;
+export default connect(null, mapDispatchToProps)(Routes);
