@@ -9,6 +9,8 @@ import Header from './components/header';
 // to make the "back button" on browser work with this kind of SPA
 import createBrowserHistory from './utils/history';
 import AuthCheck from './utils/authcheck';
+import Profile from "./containers/profile";
+
 import { Router, Route, Switch, Redirect } from 'react-router';
 
 import Callback from './functional/callback';
@@ -56,6 +58,7 @@ class Routes extends Component {
               <Route path='/authcheck' render={() => <AuthCheck auth={auth} /> } />
 
               <PrivateRoute path="/privateroute" auth={auth} component={ProtectedRoute} />
+              <PrivateRoute path="/profile" auth={auth} component={Profile}  />
             </Switch>
             <p>0Auth route above? (only appears if not logged in) </p>
             <br/>

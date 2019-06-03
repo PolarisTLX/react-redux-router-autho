@@ -39,6 +39,12 @@ class Header extends Component {
           Private Route
         </Link>
 
+        <br />
+        <br />
+        <Link to='/profile' style={{ padding: '5px' }}>
+          Profile
+        </Link>
+
       </div>
      );
   }

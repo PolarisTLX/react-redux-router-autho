@@ -25,7 +25,7 @@ class Container1 extends Component {
         <button onClick={() => { 
           this.props.action_creator3(user_text); 
           console.log(this.props.stateprop2);
-          } }
+        } }
         > 
           Dispatch Action Creator 3 
         </button>
@@ -35,6 +35,8 @@ class Container1 extends Component {
           ? <h1>{this.props.user_input}</h1>
           : null
         }
+        <br/>
+        <button onClick={() => console.log(this.props.user_profile)}> Read Profile State </button>
       </div>
     );
   }
@@ -48,7 +50,8 @@ function mapStateToProps(state) {
     
     // and need to indicate which reducer each comes from:
     stateprop1: state.reducer1.stateprop1,
-    user_input: state.user_reducer.user_text
+    user_input: state.user_reducer.user_text,
+    user_profile: state.auth_reducer.profile
 
   }
 }
